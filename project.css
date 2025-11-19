@@ -1,0 +1,193 @@
+/* ============================
+   GENERAL STYLES
+============================ */
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #0d0d0d;
+  color: #eaeaea;
+  font-family: "JetBrains Mono", monospace;
+  overflow-x: hidden;
+}
+
+a {
+  color: #eaeaea;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+a:hover {
+  color: #fff;
+}
+
+/* ============================
+   HEADER
+============================ */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2rem 3rem;
+  border-bottom: 1px solid #222;
+}
+
+header h1 {
+  font-size: 1.2rem;
+  font-weight: 500;
+  color: #fff;
+}
+
+header nav ul {
+  list-style: none;
+  display: flex;
+  gap: 2rem;
+  margin: 0;
+  padding: 0;
+}
+
+header nav a {
+  color: #aaa;
+  font-size: 0.95rem;
+  transition: color 0.3s ease;
+}
+
+header nav a:hover {
+  color: #fff;
+}
+
+/* ============================
+   PROJECT NAVIGATION ARROWS
+============================ */
+.project-navigation {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem 3rem;
+  border-bottom: 1px solid #222;
+  margin-bottom: 1rem;
+}
+
+.project-navigation a {
+  font-size: 0.95rem;
+  color: #bbb;
+  transition: color 0.3s ease, transform 0.2s ease;
+}
+
+.project-navigation a:hover {
+  color: #fff;
+  transform: translateY(-2px);
+}
+
+/* ============================
+   MAIN LAYOUT
+============================ */
+.project-layout {
+  display: grid;
+  grid-template-columns: 2fr 3fr;
+  gap: 2rem;
+  padding: 3rem;
+}
+
+.project-text {
+  position: sticky;
+  top: 2rem;
+  align-self: start;
+}
+
+.project-text h2 {
+  font-size: 1.1rem;
+  margin-bottom: 1rem;
+  color: #fff;
+}
+
+.project-text p {
+  font-size: 0.9rem;
+  line-height: 1.6;
+  color: #ccc;
+}
+
+.project-text a {
+  color: #88f;
+  text-decoration: underline;
+}
+
+.project-text a:hover {
+  color: #aaf;
+}
+
+/* ============================
+   IMAGES
+============================ */
+.project-images {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  max-height: 85vh;
+  overflow-y: scroll;
+  scrollbar-width: none;
+}
+
+.project-images::-webkit-scrollbar {
+  display: none;
+}
+
+.project-images img,
+.project-images video {
+  width: 100%;
+  border-radius: 12px;
+  object-fit: cover;
+}
+
+/* ============================
+   FOOTER
+============================ */
+.contact-footer {
+  padding: 2rem 3rem;
+  text-align: center;
+  font-size: 0.9rem;
+  color: #999;
+  border-top: 1px solid #222;
+  margin-top: 3rem;
+}
+
+.contact-footer ul {
+  list-style: none;
+  padding: 0;
+  margin: 0.5rem 0 0;
+}
+
+.contact-footer li {
+  display: inline;
+  margin: 0 0.5rem;
+}
+
+.contact-footer a {
+  color: #999;
+  transition: color 0.3s ease;
+}
+
+.contact-footer a:hover {
+  color: #fff;
+}
+
+/* ============================
+   RESPONSIVE
+============================ */
+@media (max-width: 900px) {
+  .project-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .project-text {
+    position: relative;
+  }
+
+  .project-images {
+    max-height: none;
+    overflow: visible;
+  }
+
+  header, .project-navigation, .contact-footer {
+    padding: 1.5rem;
+  }
+}
