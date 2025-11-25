@@ -132,6 +132,7 @@ nav a {
 }
 
 /* ====== Filters ====== */
+/* ====== Filters ====== */
 .filters {
   display: flex;
   justify-content: center;
@@ -142,6 +143,7 @@ nav a {
   flex-wrap: wrap;
 }
 
+/* FILTER BUTTONS */
 .filter-btn {
   background: transparent;
   border: 1px solid #333;
@@ -151,18 +153,43 @@ nav a {
   cursor: pointer;
   transition: all 0.2s;
   font-family: "JetBrains Mono", monospace;
+  white-space: nowrap;     /* prevents breaking */
 }
 
+/* ACTIVE STATE */
 .filter-btn.active {
   color: #fff;
   border-color: #fff;
   background: #111;
 }
 
+/* HOVER */
 .filter-btn:hover {
   transform: scale(1.03);
   background: #fff;
   color: #282828;
+}
+
+/* ====== MOBILE FIX (ONLY THIS IS NEW) ====== */
+@media (max-width: 600px) {
+  .filters {
+    justify-content: flex-start;   /* align left */
+    overflow-x: auto;              /* scroll horizontally */
+    overflow-y: hidden;
+    flex-wrap: nowrap;             /* single row */
+    gap: 1rem;
+    padding-bottom: 0.8rem;
+    -webkit-overflow-scrolling: touch;  /* smooth scroll on iOS */
+  }
+
+  .filters::-webkit-scrollbar {
+    display: none; /* hide scrollbar */
+  }
+
+  .filter-btn {
+    flex-shrink: 0;       /* don't shrink */
+    white-space: nowrap;  /* stay one line */
+  }
 }
 
 /* ====== Grid (2 projects per row) ====== */
@@ -334,3 +361,66 @@ nav a {
   }
 }
 
+/* ====== Mobile: stack header and force filters below nav ====== */
+@media (max-width: 600px) {
+
+  /* Stack header content vertically so nav is under the name */
+  header {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 1rem 1.2rem;
+    gap: 0.5rem;
+  }
+
+  /* keep site title first */
+  header h1 {
+    font-size: 1.3rem;
+    margin-bottom: 0;
+  }
+
+  /* nav should sit directly under the title (full width) */
+  nav {
+    width: 100%;
+  }
+
+  nav ul {
+    display: flex;
+    gap: 0.8rem;
+    padding-left: 0;
+    margin-top: 0.1rem;
+  }
+
+  /* keep the toggle visible in the top-right corner */
+  .toggle {
+    position: absolute;
+    right: 1rem;
+    top: 0.9rem;
+    transform: scale(0.95);
+  }
+
+  /* Ensure the filters section occupies full width and sits BELOW header */
+  .filters {
+    width: 100%;
+    /* ensure it appears visually under the header */
+    margin-top: 0.6rem;
+    padding: 0.8rem 1.2rem 1.2rem;
+    justify-content: flex-start;
+    gap: 0.6rem;
+    /* keep wrap behaviour for small screens if you prefer 2 rows */
+    flex-wrap: wrap;
+    border-bottom: 1px solid #222;
+    box-sizing: border-box;
+  }
+
+  /* make each filter pill a little smaller to fit two-per-row nicely */
+  .filter-btn {
+    padding: 0.45rem 0.9rem;
+    font-size: 0.82rem;
+    flex: 1 1 calc(50% - 0.6rem); /* allows two items per row */
+    min-width: 0; /* important so flex basis works on some browsers */
+    white-space: nowrap;
+  }
+
+  /* if you instead prefer a single horizontal scroll row, change flex-wrap to nowrap
+     and set .filter-btn { flex-shrink:0; } — but this keeps the two-row layout */
+}
