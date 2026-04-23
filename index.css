@@ -1,19 +1,14 @@
-/* ====== Typography ====== */
+/* ====== Base ====== */
 body {
   font-family: "acumin-pro", sans-serif;
-  font-weight: 400;
-  font-style: normal;
   background: #0a0a0a;
   color: #e5e5e5;
   margin: 0;
 }
 
-/* All titles and headers use JetBrains Mono */
-h1, h2, h3, h4, h5, h6 {
+h1, h2, h3 {
   font-family: "JetBrains Mono", monospace;
-  font-optical-sizing: auto;
   font-weight: 500;
-  font-style: normal;
   letter-spacing: -0.01em;
 }
 
@@ -22,19 +17,16 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1.5rem 2rem;
-  gap: 1rem;
+  padding: 1.5rem 1rem;
   position: relative;
-  z-index: 10;
 }
 
 header h1 {
-  font-size: 1.5rem;
+  font-size: 1.4rem;
   margin: 0;
-  font-weight: 500;
 }
 
-/* ====== Navigation ====== */
+/* ====== Nav ====== */
 nav ul {
   display: flex;
   gap: 1rem;
@@ -46,85 +38,41 @@ nav ul {
 nav a {
   color: #ccc;
   text-decoration: none;
-  font-weight: 500;
   font-family: "JetBrains Mono", monospace;
 }
 
-/* Toggle container */
+/* ====== Toggle ====== */
 .toggle {
   position: relative;
-  display: inline-block;
   width: 60px;
   height: 32px;
 }
 
-/* Hide checkbox */
 .toggle input {
   display: none;
 }
 
-/* Background track */
 .slider {
   position: absolute;
-  cursor: pointer;
   inset: 0;
   background: #444;
   border-radius: 40px;
-  transition: background 0.3s ease;
 }
 
-/* Circle */
 .slider:before {
   content: "";
   position: absolute;
-  height: 24px;
   width: 24px;
-  left: 4px;
-  top: 4px;
-  background: #fff;
-  border-radius: 50%;
-  transition: transform 0.3s ease;
-}
-
-/* Toggle container */
-.toggle {
-  position: relative;
-  display: inline-block;
-  width: 60px;
-  height: 32px;
-}
-
-/* Hide checkbox */
-.toggle input {
-  display: none;
-}
-
-/* Background track */
-.slider {
-  position: absolute;
-  cursor: pointer;
-  inset: 0;
-  background: #444;
-  border-radius: 40px;
-  transition: background 0.3s ease;
-}
-
-/* Circle */
-.slider:before {
-  content: "";
-  position: absolute;
   height: 24px;
-  width: 24px;
-  left: 4px;
   top: 4px;
-  background: #000000;
+  left: 4px;
+  background: #000;
   border-radius: 50%;
-  transition: transform 0.3s ease;
+  transition: 0.3s;
 }
 
-/* ON state */
 .toggle input:checked + .slider {
-  background: hsl(0, 0%, 100%);;
+  background: #fff;
 }
 
 .toggle input:checked + .slider:before {
@@ -132,203 +80,116 @@ nav a {
 }
 
 /* ====== Filters ====== */
-/* ====== Filters ====== */
 .filters {
   display: flex;
-  justify-content: center;
-  gap: 1.2rem;
-  padding: 1.5rem 2rem;
+  gap: 0.8rem;
+  padding: 1rem;
   border-bottom: 1px solid #222;
-  margin-bottom: 2rem;
   flex-wrap: wrap;
+  justify-content: center;
 }
 
-/* FILTER BUTTONS */
 .filter-btn {
   background: transparent;
   border: 1px solid #333;
   color: #aaa;
-  padding: 0.6rem 1.2rem;
+  padding: 0.45rem 0.9rem;
   border-radius: 6px;
   cursor: pointer;
-  transition: all 0.2s;
   font-family: "JetBrains Mono", monospace;
-  white-space: nowrap;     /* prevents breaking */
 }
 
-/* ACTIVE STATE */
 .filter-btn.active {
   color: #fff;
   border-color: #fff;
   background: #111;
 }
 
-/* HOVER */
 .filter-btn:hover {
-  transform: scale(1.03);
   background: #fff;
-  color: #282828;
+  color: #000;
 }
 
-/* ====== MOBILE FIX (ONLY THIS IS NEW) ====== */
-@media (max-width: 600px) {
-  .filters {
-    justify-content: flex-start;   /* align left */
-    overflow-x: auto;              /* scroll horizontally */
-    overflow-y: hidden;
-    flex-wrap: nowrap;             /* single row */
-    gap: 1rem;
-    padding-bottom: 0.8rem;
-    -webkit-overflow-scrolling: touch;  /* smooth scroll on iOS */
-  }
-
-  .filters::-webkit-scrollbar {
-    display: none; /* hide scrollbar */
-  }
-
-  .filter-btn {
-    flex-shrink: 0;       /* don't shrink */
-    white-space: nowrap;  /* stay one line */
-  }
-}
-
-/* ====== Grid (2 projects per row) ====== */
+/* ====== GRID (CLEAN + BIGGER) ====== */
 .grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  grid-auto-rows: 440px;
-  gap: 5.4rem; /* increased by 20% from 2rem */
-  padding: 0 2rem 5rem;
-  align-items: stretch;
+  gap: 1rem;
+  padding: 0 1rem 3rem;
 }
 
-/* ====== Responsive ====== */
-@media (max-width: 900px) {
-  .grid {
-    grid-template-columns: 1fr;
-    grid-auto-rows: auto;
-    padding: 0 1.2rem 4rem;
-    gap: 1.68rem; /* increased by 20% from 1.4rem */
-  }
-}
-
-/* ====== Project cell ====== */
+/* ====== Project ====== */
 .project {
   position: relative;
   overflow: hidden;
-  border-radius: 8px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  border-radius: 6px;
   background: #0a0a0a;
-  transition: transform 0.22s ease;
-  height: 100%;
-  cursor: pointer;
 }
 
-.project:hover {
-  transform: translateY(-4px);
-}
-
-/* ====== Image placeholders ====== */
-.image-placeholder {
-  width: 100%;
-  height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: transparent;
-}
-
-.image-placeholder img.static-img {
-  max-width: 100%;
-  max-height: 100%;
-  width: auto;
-  height: auto;
-  display: block;
-}
-
+/* ====== IMAGE CONTAINER (16:9) ====== */
+.image-placeholder,
 .rotating-images {
-  position: relative;
   width: 100%;
-  height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  aspect-ratio: 16 / 9;
+  position: relative;
+  overflow: hidden;
 }
 
+/* ====== IMAGES ====== */
+.image-placeholder img,
 .rotating-images img {
   position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  max-width: 100%;
-  max-height: 100%;
-  width: auto;
-  height: auto;
-  display: block;
-  opacity: 0;
-  transition: opacity 0.45s ease;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  top: 0;
+  left: 0;
 }
 
+/* rotating fade */
+.rotating-images img {
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+/* ====== Hover Title ====== */
 .project h3 {
   position: absolute;
-  padding: 0.8rem 1.2rem;
-  font-size: 1.25rem;
-  font-weight: 500;
-  color: #fff;
+  padding: 0.5rem 0.9rem;
+  font-size: 1rem;
   background: rgba(0,0,0,0.85);
-  font-family: "JetBrains Mono", monospace;
+  color: #fff;
   opacity: 0;
-  pointer-events: none; /* allows pointer events on image */
-  transition: opacity 0.2s ease, transform 0.1s ease;
   transform: translate(-50%, -50%);
+  pointer-events: none;
 }
 
-
-/* ====== Project variants ====== */
-.project.large,
-.project.tall,
-.project.wide {
-  grid-column: auto;
-  grid-row: auto;
-}
-
+/* ====== Full Width Projects ====== */
 .project.full {
   grid-column: 1 / -1;
-  grid-row: span 1;
 }
 
-/* Footer */
+/* ====== Footer ====== */
 .contact-footer {
-  padding: 2rem;
+  padding: 2rem 1rem;
   text-align: center;
-  font-size: 0.95rem;
+  font-size: 0.9rem;
   color: #aaa;
   border-top: 1px solid #222;
-  margin-top: 4rem;
-}
-
-.contact-footer p {
-  margin: 0 0 0.5rem 0;
-  font-weight: 500;
-  color: #ccc;
+  margin-top: 2rem;
 }
 
 .contact-footer ul {
   list-style: none;
-  padding: 0;
-  margin: 0;
   display: flex;
   justify-content: center;
-  gap: 1.5rem;
-  flex-wrap: wrap;
+  gap: 1rem;
+  padding: 0;
 }
 
 .contact-footer a {
   color: #888;
   text-decoration: none;
-  transition: color 0.3s ease;
 }
 
 .contact-footer a:hover {
@@ -339,88 +200,10 @@ nav a {
 @media (max-width: 900px) {
   .grid {
     grid-template-columns: 1fr;
-    grid-auto-rows: auto;
-    padding: 0 1.2rem 4rem;
-    gap: 1.4rem;
-  }
-
-  .project {
-    height: auto;
-    min-height: 260px;
-  }
-
-  .project.full {
-    grid-column: auto;
-    grid-row: auto;
-    min-height: 320px;
-  }
-
-  .project h3 {
-    font-size: 1.1rem;
-    padding: 1.5rem;
+    gap: 0.8rem;
   }
 }
 
-/* ====== Mobile: stack header and force filters below nav ====== */
-@media (max-width: 600px) {
-
-  /* Stack header content vertically so nav is under the name */
-  header {
-    flex-direction: column;
-    align-items: flex-start;
-    padding: 1rem 1.2rem;
-    gap: 0.5rem;
-  }
-
-  /* keep site title first */
-  header h1 {
-    font-size: 1.3rem;
-    margin-bottom: 0;
-  }
-
-  /* nav should sit directly under the title (full width) */
-  nav {
-    width: 100%;
-  }
-
-  nav ul {
-    display: flex;
-    gap: 0.8rem;
-    padding-left: 0;
-    margin-top: 0.1rem;
-  }
-
-  /* keep the toggle visible in the top-right corner */
-  .toggle {
-    position: absolute;
-    right: 1rem;
-    top: 0.9rem;
-    transform: scale(0.95);
-  }
-
-  /* Ensure the filters section occupies full width and sits BELOW header */
-  .filters {
-    width: 100%;
-    /* ensure it appears visually under the header */
-    margin-top: 0.6rem;
-    padding: 0.8rem 1.2rem 1.2rem;
-    justify-content: flex-start;
-    gap: 0.6rem;
-    /* keep wrap behaviour for small screens if you prefer 2 rows */
-    flex-wrap: wrap;
-    border-bottom: 1px solid #222;
-    box-sizing: border-box;
-  }
-
-  /* make each filter pill a little smaller to fit two-per-row nicely */
-  .filter-btn {
-    padding: 0.45rem 0.9rem;
-    font-size: 0.82rem;
-    flex: 1 1 calc(50% - 0.6rem); /* allows two items per row */
-    min-width: 0; /* important so flex basis works on some browsers */
-    white-space: nowrap;
-  }
-
-  /* if you instead prefer a single horizontal scroll row, change flex-wrap to nowrap
-     and set .filter-btn { flex-shrink:0; } — but this keeps the two-row layout */
+.hidden-project {
+  display: none;
 }
