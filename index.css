@@ -240,3 +240,15 @@ nav a:hover {
 .hidden-project {
   display: none;
 }
+
+#google_translate_element {
+  display: none;
+}
+
+.goog-te-banner-frame {
+  display: none !important;
+}
+
+body {
+  top: 0 !important;
+}

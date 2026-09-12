@@ -47,6 +47,15 @@ header h1 a:hover {
   margin-bottom: 1.2rem;
 }
 
+body,
+body *,
+.goog-te-banner-frame,
+.goog-te-menu-value,
+.goog-te-gadget,
+.goog-te-combo {
+    font-family: 'JetBrains Mono', monospace !important;
+}
+
 /* IMAGE (controlled size) */
 .about-image {
   display: flex;
@@ -143,4 +152,16 @@ header h1 a:hover {
 /* visible */
 .stack-img.active {
   opacity: 1;
+}
+
+#google_translate_element {
+  display: none;
+}
+
+.goog-te-banner-frame {
+  display: none !important;
+}
+
+body {
+  top: 0 !important;
 }
