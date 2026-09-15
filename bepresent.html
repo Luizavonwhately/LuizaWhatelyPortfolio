@@ -71,3 +71,32 @@
 
 </body>
 </html>
+<script>
+  // ================================
+  // GOOGLE TRANSLATE
+  // ================================
+
+  function googleTranslateElementInit() {
+      new google.translate.TranslateElement({
+          pageLanguage: 'en',
+          includedLanguages: 'en,pt',
+          autoDisplay: false
+      }, 'google_translate_element');
+  }
+
+  function changeLanguage(language) {
+      const select = document.querySelector('.goog-te-combo');
+
+      if (!select) {
+          console.log('Google Translate is still loading...');
+          return;
+      }
+
+      select.value = language;
+      select.dispatchEvent(new Event('change'));
+  }
+</script>
+
+<script 
+  src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit">
+</script>

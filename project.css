@@ -191,3 +191,20 @@ header nav a:hover {
     padding: 1.5rem;
   }
 }
+
+/* ====== Hidden Projects ====== */
+.hidden-project {
+  display: none;
+}
+
+#google_translate_element {
+  display: none;
+}
+
+.goog-te-banner-frame {
+  display: none !important;
+}
+
+body {
+  top: 0 !important;
+}
